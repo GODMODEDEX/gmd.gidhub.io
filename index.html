@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modding Service Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #fff;
+        }
+        .hero h2 {
+            font-size: 2.5em;
+            animation: fadeIn 1s ease-in-out;
+        }
+        .hero p {
+            font-size: 1.2em;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .service {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .service:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .service h3 {
+            margin: 10px 0;
+        }
+        .service p {
+            margin: 0 0 20px;
+        }
+        .service button {
+            background: #0072ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .service button:hover {
+            background: #005bb5;
+        }
+        .gallery {
+            padding: 20px;
+            text-align: center;
+            background: #eef5ff;
+        }
+        .gallery h2 {
+            margin-bottom: 20px;
+        }
+        .gallery .item {
+            display: inline-block;
+            margin: 10px;
+            width: 300px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery .item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .gallery .item img {
+            width: 100%;
+            display: block;
+        }
+        .gallery .item .info {
+            padding: 15px;
+        }
+        .gallery .item .info h3 {
+            margin: 0 0 10px;
+        }
+        .gallery .item .info p {
+            margin: 0 0 15px;
+        }
+        .gallery .item .info a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #0072ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
+        }
+        .gallery .item .info a:hover {
+            background: #005bb5;
+        }
+        footer {
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        footer p {
+            margin: 0;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Modding Service Shop</h1>
+        <nav>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Custom Mods Tailored For You</h2>
+        <p>Explore high-quality mods and transform your gaming experience.</p>
+    </section>
+
+    <section id="services" class="services">
+        <div class="service">
+            <h3>Unlock All Levels</h3>
+            <p>Access every mission and level instantly in GTA 5.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="service">
+            <h3>Weapon Upgrades</h3>
+            <p>Unlock and enhance every weapon for maximum firepower.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="service">
+            <h3>Vehicle Customization</h3>
+            <p>Unlock premium cars and customizations for GTA 5 and 6.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="service">
+            <h3>Money Boost</h3>
+            <p>Instantly add billions to your in-game account.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="service">
+            <h3>Character Enhancements</h3>
+            <p>Max out stats and abilities for your characters.</p>
+            <button>Learn More</button>
+        </div>
+        <div class="service">
+            <h3>Exclusive Skins</h3>
+            <p>Stand out with unique skins for GTA 5 and 6 characters.</p>
+            <button>Learn More</button>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <h2>Featured Mods</h2>
+        <div class="item">
+            <img src="mod1.jpg" alt="GTA 5 Unlock Levels">
+            <div class="info">
+                <h3>Unlock All Levels</h3>
+                <p>Enjoy unrestricted access to every mission and level.</p>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <div class="item">
+            <img src="mod2.jpg" alt="GTA 6 Money Boost">
+            <div class="info">
+                <h3>Money Boost</h3>
+                <p>Receive billions of in-game currency instantly.</p>
+                <a href="#">View Details</a>
+            </div>
+        </div>
+        <p> WE TRY TO MAKE UNLOKC ALLS FOR GTA 6 IF YOU CAN!.</p>
+
+    <footer>
+        <p>&copy; 2025 Modding Service Shop. All rights reserved.</p>
+    </footer>
+</body>
+</html>
