@@ -3,245 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GODMODEDEX | TERMINAL</title>
+    <title>GODMODEDEX - SYSTEM OVERRIDE</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&amp;family=VT323&amp;display=swap');
+        
         :root {
-            --bg-color: #030303;
-            --primary-red: #ff003c;
-            --dark-red: #8a0020;
-            --text-color: #ededed;
+            --red: #ff0000;
+            --dark-red: #8b0000;
+            --black: #0a0a0a;
+            --white: #ffffff;
         }
-
+        
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-
+        
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Share Tech Mono', monospace;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a0000 100%);
+            color: var(--white);
+            font-family: 'VT323', monospace;
             overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 25% 30%, rgba(255,0,0,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 70%, rgba(255,0,0,0.1) 0%, transparent 50%);
+            position: relative;
         }
-
-        /* Blood Rain Background */
-        #rain-container {
-            position: fixed;
+        
+        body::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255,0,0,0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,0,0,0.08) 1px, transparent 1px);
+            background-size: 40px 40px;
             pointer-events: none;
-            z-index: -1;
+            z-index: 0;
         }
-
-        .drop {
-            position: absolute;
-            background: linear-gradient(transparent, var(--primary-red));
-            width: 2px;
-            height: 20px;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            0% { transform: translateY(-100vh); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(100vh); opacity: 0; }
-        }
-
-        /* Header & Glitch Effect */
+        
         header {
-            margin-top: 10vh;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .glitch {
-            font-size: 5rem;
-            font-weight: bold;
+            background: rgba(10,10,10,0.95);
+            border-bottom: 3px solid var(--red);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: relative;
-            color: var(--primary-red);
-            text-shadow: 0 0 10px var(--primary-red), 0 0 20px var(--dark-red);
-            letter-spacing: 5px;
+            z-index: 10;
+            box-shadow: 0 0 30px var(--red);
         }
-
-        .glitch::before, .glitch::after {
-            content: attr(data-text);
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--red);
+            text-shadow: 
+                0 0 10px var(--red),
+                0 0 20px var(--red),
+                0 0 40px #ff4444;
+            letter-spacing: 4px;
+        }
+        
+        .subtitle {
+            font-size: 1.1rem;
+            color: #ff6666;
+            letter-spacing: 2px;
+        }
+        
+        .main-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .panel {
+            background: rgba(15,15,15,0.95);
+            border: 2px solid #440000;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .panel:hover {
+            transform: translateY(-8px);
+            border-color: var(--red);
+            box-shadow: 0 0 35px rgba(255,0,0,0.6);
+        }
+        
+        .panel::before {
+            content: '';
             position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 40%;
+            height: 40%;
+            background: radial-gradient(circle, rgba(255,50,50,0.15) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .panel:hover::before {
+            opacity: 1;
+        }
+        
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .icon {
+            width: 70px;
+            height: 70px;
+            background: #1a0000;
+            border: 2px solid var(--red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--red);
+            box-shadow: 0 0 15px var(--red);
+        }
+        
+        .panel-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--red);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        
+        .description {
+            color: #ddd;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            font-size: 1.15rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--red);
+            padding: 12px 28px;
+            font-family: 'VT323', monospace;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        button:hover {
+            background: var(--red);
+            color: var(--black);
+            box-shadow: 0 0 20px var(--red);
+            transform: scale(1.05);
+        }
+        
+        .footer-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10,0,0,0.9);
+            border-top: 2px solid var(--red);
+            padding: 12px;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #aa4444;
+            z-index: 100;
+        }
+        
+        .scanline {
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--bg-color);
-        }
-
-        .glitch::before {
-            left: 2px;
-            text-shadow: -2px 0 #00ffff;
-            clip: rect(24px, 550px, 90px, 0);
-            animation: glitch-anim-2 3s infinite linear alternate-reverse;
-        }
-
-        .glitch::after {
-            left: -2px;
-            text-shadow: -2px 0 var(--primary-red);
-            clip: rect(85px, 550px, 140px, 0);
-            animation: glitch-anim 2.5s infinite linear alternate-reverse;
-        }
-
-        @keyframes glitch-anim {
-            0% { clip: rect(15px, 9999px, 71px, 0); }
-            20% { clip: rect(32px, 9999px, 98px, 0); }
-            40% { clip: rect(78px, 9999px, 43px, 0); }
-            60% { clip: rect(12px, 9999px, 85px, 0); }
-            80% { clip: rect(98px, 9999px, 14px, 0); }
-            100% { clip: rect(45px, 9999px, 62px, 0); }
-        }
-
-        @keyframes glitch-anim-2 {
-            0% { clip: rect(65px, 9999px, 100px, 0); }
-            20% { clip: rect(12px, 9999px, 55px, 0); }
-            40% { clip: rect(88px, 9999px, 22px, 0); }
-            60% { clip: rect(34px, 9999px, 77px, 0); }
-            80% { clip: rect(9px, 9999px, 88px, 0); }
-            100% { clip: rect(55px, 9999px, 11px, 0); }
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: #888;
-            margin-top: -10px;
-            letter-spacing: 2px;
-        }
-
-        /* Terminal Interface */
-        .dashboard {
-            margin-top: 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            width: 80%;
-            max-width: 1200px;
-        }
-
-        .panel {
-            background: rgba(10, 10, 10, 0.8);
-            border: 1px solid var(--dark-red);
-            padding: 25px;
-            position: relative;
-            transition: all 0.3s ease;
-            box-shadow: inset 0 0 10px rgba(255, 0, 60, 0.1);
-        }
-
-        .panel:hover {
-            border-color: var(--primary-red);
-            box-shadow: 0 0 15px rgba(255, 0, 60, 0.4), inset 0 0 20px rgba(255, 0, 60, 0.2);
-            transform: translateY(-5px);
-        }
-
-        .panel h2 {
-            color: var(--primary-red);
-            border-bottom: 1px solid var(--dark-red);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .btn {
-            display: inline-block;
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            background: transparent;
-            color: var(--text-color);
-            border: 1px solid #333;
-            text-align: center;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: 0.2s;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background: var(--primary-red);
-            color: #000;
-            border-color: var(--primary-red);
-            box-shadow: 0 0 10px var(--primary-red);
-        }
-
-        /* Scanline Overlay */
-        .scanlines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
             background: linear-gradient(
                 to bottom,
-                rgba(255,255,255,0),
-                rgba(255,255,255,0) 50%,
-                rgba(0,0,0,0.2) 50%,
-                rgba(0,0,0,0.2)
+                transparent 50%,
+                rgba(255, 0, 0, 0.03) 50%
             );
-            background-size: 100% 4px;
+            background-size: 100% 6px;
             pointer-events: none;
-            z-index: 999;
+            animation: scan 4s linear infinite;
+            z-index: 1;
             opacity: 0.6;
+        }
+        
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        
+        .glitch {
+            animation: glitch 1s linear infinite;
+        }
+        
+        @keyframes glitch {
+            2%, 64% { transform: translate(2px,0) skew(0deg); }
+            4%, 60% { transform: translate(-2px,0) skew(0deg); }
         }
     </style>
 </head>
 <body>
-
-    <div id="rain-container"></div>
-    <div class="scanlines"></div>
-
+    <div class="scanline"></div>
+    
     <header>
-        <h1 class="glitch" data-text="GODMODEDEX">GODMODEDEX</h1>
-        <p class="subtitle">SYS.OVERRIDE // ACTIVE</p>
-    </header>
-
-    <main class="dashboard">
-        <div class="panel">
-            <h2>> INJECTIONS</h2>
-            <button class="btn">Execute LUA Payload</button>
-            <button class="btn">Bypass Anti-Cheat</button>
-            <button class="btn">KILL NAZIBLOX(Roblox)</button>
+        <div class="menu-icon">☰</div>
+        <div>
+            <div class="logo glitch">GODMODEDEX</div>
+            <div class="subtitle">SYSTEM OVERRIDE / THE EXCLUSIVE MOD INDEX</div>
         </div>
-
-     
-
-      
-    </main>
-
-    <script>
-        // Blood Rain Generator
-        const rainContainer = document.getElementById('rain-container');
-        const dropCount = 100;
-
-        for (let i = 0; i < dropCount; i++) {
-            let drop = document.createElement('div');
-            drop.classList.add('drop');
-            
-            // Randomize position, delay, and duration
-            let posX = Math.random() * 100;
-            let delay = Math.random() * 5;
-            let duration = Math.random() * 1 + 0.5;
-
-            drop.style.left = posX + 'vw';
-            drop.style.animationDelay = delay + 's';
-            drop.style.animationDuration = duration + 's';
-
-            rainContainer.appendChild(drop);
-        }
-    </script>
-</body>
-</html>
+       
